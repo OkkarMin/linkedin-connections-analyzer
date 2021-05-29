@@ -48,7 +48,7 @@ with st.beta_expander(
     "👉 Click here to find out how to obtian your own `Connections.csv`"
 ):
     f"[Official LinkedIn instructions on how to obtain Connections.csv]\
-    (https:www.linkedin.com/help/linkedin/answer/66844/export-connections-from-linkedin?lang=en)"
+    (https://linkedin.com/help/linkedin/answer/66844/export-connections-from-linkedin?lang=en)"
 
 with st.beta_expander("🧐 FAQ"):
     f"""
@@ -56,7 +56,7 @@ with st.beta_expander("🧐 FAQ"):
 
         - The data in `Connections.csv` is publicly availabe information. I am just processing the data\
         for us to easily visualize key information. And no, I am not storing your data or going to\
-        take your data. In fact, the source code for this is available on [github](repoLinkHere)\
+        take your data. In fact, the source code for this is available on [github](https://github.com/OkkarMin/linkedin-connections-analyzer)\
         so you can check out what and how I am wrangling the data.
     - Why did you make this?
 
