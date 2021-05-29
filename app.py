@@ -32,9 +32,9 @@ with row0_1:
         width=200,
     )
     "# Analyzing LinkedIn Connections"
-row0_2.write("")
-row0_2.write("")
 with row0_2:
+    " "
+    " "
     "### 🛠 by [Okkar Min](https://okkarm.in)"
 
 # explanation
