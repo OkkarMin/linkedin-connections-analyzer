@@ -4,6 +4,6 @@ port = 80
 [theme]
 primaryColor="#00A0DC"
 backgroundColor="#FEFEFE"
-secondaryBackgroundColor="#CACCCE"
+secondaryBackgroundColor="#EFEFEF"
 textColor="#313335"
 font="sans serif"
