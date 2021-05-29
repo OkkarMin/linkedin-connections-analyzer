@@ -5,11 +5,11 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 from streamlit_lottie import st_lottie
-import streamlit_wordcloud as wordcloud
 from PIL import Image
+from wordcloud import WordCloud, ImageColorGenerator
 
 
-st.set_page_config(layout="wide")
+st.set_page_config(page_title="LinkedIn Analyzer", layout="wide")
 
 
 def load_lottieurl(url: str):
@@ -80,6 +80,7 @@ with row1_3:
         unsafe_allow_html=True,
     )
 
+
 # 1 column chart
 # group by 'Position'
 pdf = df.groupby("Position").agg(["count"])
@@ -106,14 +107,17 @@ f"You seem to be connected with alot of **{top_job_title}**, in fact \
 with **{least_job_title}** because there is only \
 **{least_job_title_head_count}** in your network"
 
-# 2 column charts
-# row2_1, row_padding, row2_2 = st.beta_columns([2, 0.15, 2])
-row2_1, row2_2 = st.beta_columns(2)
 
+# 2 column charts
+row2_1, row_padding, row2_2 = st.beta_columns([2, 0.15, 2])
+row2_1, row2_2 = st.beta_columns(2)
 with row2_1:  # connections by company
     # group by 'Company'
     cdf = df.groupby("Company").agg(["count"])
-    grouped_by_company = cdf["First Name"].sort_values(by=["count"], ascending=False)
+    grouped_by_company = cdf["First Name"].sort_values(
+        by=["count"],
+        ascending=False,
+    )
 
     # bar chart
     fig = px.bar(
@@ -156,4 +160,52 @@ with row2_2:  # connections by date
     connections clocking in at **{max_connection_in_day}**.\
     On average, you made **{average_connection:.2f}** connections per day"
 
-# 2 column charts
+
+# 2 column hand_shake and chart
+row3_1, row3_2 = st.beta_columns([1, 1])
+with row3_1:
+    first_names = df["First Name"]
+    text = " ".join(str(first_name) for first_name in first_names.array)
+    shake_mask = np.array(Image.open("./assets/hand_shake_mask.png"))
+    wordcloud = (
+        WordCloud(
+            mask=shake_mask,
+            contour_width=0.000000001,
+            contour_color="#1F77B4",
+            background_color="#FEFEFE",
+            min_font_size=10,
+        )
+        .generate_from_text(text)
+        .to_array()
+    )
+
+    ""
+    ""
+    ""
+    ""
+    ""
+    st.image(wordcloud, use_column_width=True)
+
+    fdf = df.groupby("Last Name").agg(["count"])
+    grouped_by_first_name = fdf["First Name"].sort_values(
+        by=["count"],
+        ascending=False,
+    )
+
+with row3_2:
+    gfn = grouped_by_first_name.reset_index()
+    fig = px.pie(
+        gfn.head(10),
+        values="count",
+        names="Last Name",
+        template="none",
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+# wordcloud and piechart explanation
+top_first_name = grouped_by_first_name["count"].idxmax()
+top_first_name_count = grouped_by_first_name["count"].max()
+least_first_name = grouped_by_first_name["count"].idxmin()
+least_first_name_count = grouped_by_first_name["count"].min()
+f"**{top_first_name}**(s) are dominating your network with a total apperance of \
+**{top_first_name_count}** and **{least_first_name}**(s) are at **{least_first_name_count}**"
