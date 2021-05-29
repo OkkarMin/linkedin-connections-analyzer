@@ -1,3 +1,5 @@
 /.vscode
 /venv
 .DS_Store
+__pycache__
+updated_connections.csv
