@@ -22,7 +22,7 @@ def load_lottieurl(url: str):
 lottie_linkedin = load_lottieurl(
     "https://assets9.lottiefiles.com/packages/lf20_yNYxCH.json"
 )
-# st_lottie(lottie_linkedin, speed=0.8, height=150, key="initial")
+st_lottie(lottie_linkedin, speed=0.8, height=200, key="initial")
 
 # introduction
 row0_1, row0_spacer, row0_2 = st.beta_columns([2, 1, 1])
@@ -35,13 +35,41 @@ with row0_1:
 with row0_2:
     " "
     " "
-    "### 🛠 by [Okkar Min](https://okkarm.in)"
+    "### 🛠 by [Okkar Min](https://www.linkedin.com/in/okarmin)"
 
 # explanation
-"Hey hey 👋 , talk about the explanation here"
+f"Hey hey 👋 , welcome to my LinkedIn connections analyzer. I recently found out that \
+LinkedIn allow you to export your connections data in CSV format. I got curious and downloaded \
+a copy for myself found out it contains informations that is publicly available to LinkedIn users. \
+Data you are seeing now is my (Okkar Min's) connections data. If you would like to see your own \
+data, just upload your Connections.csv obtained from LinkedIn using the uploader box below"
+
+with st.beta_expander(
+    "👉 Click here to find out how to obtian your own `Connections.csv`"
+):
+    f"[Official LinkedIn instructions on how to obtain Connections.csv]\
+    (https:www.linkedin.com/help/linkedin/answer/66844/export-connections-from-linkedin?lang=en)"
+
+with st.beta_expander("🧐 FAQ"):
+    f"""
+    - Are you going to take my `Connections.csv` data?
+
+        - The data in `Connections.csv` is publicly availabe information. I am just processing the data\
+        for us to easily visualize key information. And no, I am not storing your data or going to\
+        take your data. In fact, the source code for this is available on [github](repoLinkHere)\
+        so you can check out what and how I am wrangling the data.
+    - Why did you make this?
+
+        - I wanted to try out this amazing [Streamlit](https://steamlit.io) framework and also to\
+        hone my datascience skills
+    - Your social media links?
+
+        - [Personal site](https://okkarm.in), [GitHub](https://github.com/OkkarMin) and\
+        [LinkedIn](https://www.linkedin.com/in/okarmin)
+    """
 
 # .csv uploader
-connections_csv = st.file_uploader("Your Connections.csv")
+connections_csv = st.file_uploader("Upload your `Connections.csv` here")
 df = utils.remove_first_3_line(connections_csv)
 
 total_connections = str(df.count()["First Name"])
@@ -53,6 +81,10 @@ unique_positions = str(df.nunique()["Position"])
 row1_1, row1_2, row1_3 = st.beta_columns(3)
 
 with row1_1:
+    lottie_connections = load_lottieurl(
+        "https://assets9.lottiefiles.com/packages/lf20_1heeojnu.json"
+    )
+    st_lottie(lottie_connections, height=150)
     st.markdown(
         f"<h3 style='text-align: center;'>Total Connections</h3>",
         unsafe_allow_html=True,
@@ -62,6 +94,10 @@ with row1_1:
         unsafe_allow_html=True,
     )
 with row1_2:
+    lottie_company = load_lottieurl(
+        "https://assets7.lottiefiles.com/packages/lf20_Mjmr5Q.json"
+    )
+    st_lottie(lottie_company, height=150)
     st.markdown(
         f"<h3 style='text-align: center;'>Companies</h3>",
         unsafe_allow_html=True,
@@ -71,6 +107,10 @@ with row1_2:
         unsafe_allow_html=True,
     )
 with row1_3:
+    lottie_job = load_lottieurl(
+        "https://assets6.lottiefiles.com/private_files/lf30_LOw4AL.json"
+    )
+    st_lottie(lottie_job, height=150)
     st.markdown(
         f"<h3 style='text-align: center;'>Job Titles</h3>",
         unsafe_allow_html=True,
