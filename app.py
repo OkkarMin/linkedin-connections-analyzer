@@ -44,6 +44,8 @@ a copy for myself found out it contains informations that is publicly available 
 Data you are seeing now is my (Okkar Min's) connections data. If you would like to see your own \
 data, just upload your Connections.csv obtained from LinkedIn using the uploader box below"
 
+f"Also, do let me know if you have any feedback 😊"
+
 with st.beta_expander(
     "👉 Click here to find out how to obtian your own `Connections.csv`"
 ):
