@@ -10,4 +10,6 @@ def remove_first_3_line(file_object):
             for line in file_object:
                 updated_file.write(line)
 
-    return pd.read_csv("updated_connections.csv")
+        return pd.read_csv("updated_connections.csv")
+
+    return pd.read_csv("okkar_connections.csv")
