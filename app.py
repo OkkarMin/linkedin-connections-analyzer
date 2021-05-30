@@ -1,6 +1,5 @@
 import utils
 import streamlit as st
-import requests
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -12,14 +11,7 @@ from wordcloud import WordCloud, ImageColorGenerator
 st.set_page_config(page_title="LinkedIn Analyzer", layout="wide")
 
 
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
-
-
-lottie_linkedin = load_lottieurl(
+lottie_linkedin = utils.load_lottieurl(
     "https://assets9.lottiefiles.com/packages/lf20_yNYxCH.json"
 )
 st_lottie(lottie_linkedin, speed=0.8, height=200, key="initial")
@@ -90,7 +82,7 @@ unique_positions = str(df.nunique()["Position"])
 row1_1, row1_2, row1_3 = st.beta_columns(3)
 
 with row1_1:
-    lottie_connections = load_lottieurl(
+    lottie_connections = utils.load_lottieurl(
         "https://assets9.lottiefiles.com/packages/lf20_1heeojnu.json"
     )
     st_lottie(lottie_connections, height=150)
@@ -103,7 +95,7 @@ with row1_1:
         unsafe_allow_html=True,
     )
 with row1_2:
-    lottie_company = load_lottieurl(
+    lottie_company = utils.load_lottieurl(
         "https://assets7.lottiefiles.com/packages/lf20_Mjmr5Q.json"
     )
     st_lottie(lottie_company, height=150)
@@ -116,7 +108,7 @@ with row1_2:
         unsafe_allow_html=True,
     )
 with row1_3:
-    lottie_job = load_lottieurl(
+    lottie_job = utils.load_lottieurl(
         "https://assets6.lottiefiles.com/private_files/lf30_LOw4AL.json"
     )
     st_lottie(lottie_job, height=150)
