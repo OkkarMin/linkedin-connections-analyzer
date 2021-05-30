@@ -1,11 +1,11 @@
-import utils
-import streamlit as st
-import pandas as pd
-import numpy as np
-import plotly.express as px
-from streamlit_lottie import st_lottie
 from PIL import Image
+from streamlit_lottie import st_lottie
 from wordcloud import WordCloud, ImageColorGenerator
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+import utils
 
 
 st.set_page_config(page_title="LinkedIn Analyzer", layout="wide")
