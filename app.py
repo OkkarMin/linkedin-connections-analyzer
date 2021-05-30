@@ -52,19 +52,26 @@ with st.beta_expander(
     f"[Official LinkedIn instructions on how to obtain Connections.csv]\
     (https://linkedin.com/help/linkedin/answer/66844/export-connections-from-linkedin?lang=en)"
 
+    "or"
+
+    "[Click here](https://www.linkedin.com/psettings)"
+    "1. Go to 'Get a copy of your data'"
+    "2. Select `Connections.csv` and download when its ready"
+    "3. Upload the `Connections.csv` when it is downloaded"
+
 with st.beta_expander("🧐 FAQ"):
     f"""
-    - Are you going to take my `Connections.csv` data?
+    1. Are you going to take my `Connections.csv` data?
 
         - The data in `Connections.csv` is publicly availabe information. I am just processing the data\
         for us to easily visualize key information. And no, I am not storing your data or going to\
         take your data. In fact, the source code for this is available on [github](https://github.com/OkkarMin/linkedin-connections-analyzer)\
         so you can check out what and how I am wrangling the data.
-    - Why did you make this?
+    2. Why did you make this?
 
         - I wanted to try out this amazing [Streamlit](https://steamlit.io) framework and also to\
         hone my datascience skills
-    - Your social media links?
+    3. Your social media links?
 
         - [Personal site](https://okkarm.in), [GitHub](https://github.com/OkkarMin) and\
         [LinkedIn](https://www.linkedin.com/in/okarmin)
