@@ -1,6 +1,6 @@
 # LinkedIn Connections Analyzer
 
-🔗 [https://linkedin-analzyer.herokuapp.com](https://okkarm.in/linkedin-connections-analyzer)
+🔗 [https://okkarm.in/linkedin-connections-analyzer](https://okkarm.in/linkedin-connections-analyzer)
 
 ![GIF of end product](/assets/end_product.gif)
 
